@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Menu from './components/menu/Menu'
+import ImageCard from './components/card/Card'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button'
+import { Container } from 'react-bootstrap';
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <Button variant="dark" className="square" onClick={props.onClick}>
       {props.value}
-    </button>
+    </Button>
   );
 }
 
@@ -92,9 +97,10 @@ class Game extends React.Component {
         'Go to game start';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>
+          <Button variant="warning" onClick={() => this.jumpTo(move)}>
             {desc}
-          </button>
+          </Button>
+          <br/>
         </li>
       );
     })
@@ -145,7 +151,18 @@ function calculateWinner(squares) {
 // ========================================
 
 ReactDOM.render(
-  <Game />,
+  <>
+    <Menu />
+    <br/>
+    <br/>
+    <br/>
+    <Container>
+      <ImageCard/>
+      <br/><br/>
+      <Game />
+    </Container>
+  </>
+  ,
   document.getElementById('root')
 );
 
