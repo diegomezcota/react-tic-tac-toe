@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Menu from './components/menu/Menu'
-import ImageCard from './components/card/Card'
+import ImageCard from './components/imageCard/ImageCard'
+import MyCarousel from './components/myCarousel/MyCarousel'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button'
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function Square(props) {
   return (
@@ -157,10 +158,19 @@ ReactDOM.render(
     <br/>
     <br/>
     <Container>
-      <ImageCard/>
-      <br/><br/>
-      <Game />
+      <Row>
+        <Col>
+          <ImageCard/>
+        </Col>
+        <Col><Game /></Col>
+        <Col>
+          <MyCarousel/>
+        </Col>
+      </Row>
     </Container>
+    <br/>
+    <br/>
+    <br/>
   </>
   ,
   document.getElementById('root')
